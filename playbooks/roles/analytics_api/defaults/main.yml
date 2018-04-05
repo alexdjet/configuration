@@ -39,7 +39,7 @@ analytics_api_hostname: "analytics-api"
 analytics_api_debian_pkgs:
   - 'libmysqlclient-dev'
 
-ANALYTICS_API_VERSION: "master"
+ANALYTICS_API_VERSION: "gbabey/enterprise-data-api"
 ANALYTICS_API_NGINX_PORT: '1{{ analytics_api_gunicorn_port }}'
 ANALYTICS_API_SSL_NGINX_PORT: '4{{ analytics_api_gunicorn_port }}'
 
@@ -141,7 +141,7 @@ analytics_api_service_config_overrides:
   API_AUTH_TOKEN: '{{ ANALYTICS_API_AUTH_TOKEN }}'
   STATICFILES_DIRS: ['static']
   STATIC_ROOT: "{{ COMMON_DATA_DIR }}/{{ analytics_api_service_name }}/staticfiles"
-  LMS_BASE_URL: '{{ ANALYTICS_API_LMS_BASE_URL }}'
+  LMS_BASE_URL: "{{ ANALYTICS_API_LMS_BASE_URL | default('http://127.0.0.1:8000') }}"
 
   # db config
   ANALYTICS_DATABASE: 'reports'
