@@ -32,16 +32,14 @@ analytics_api_code_dir: "{{ analytics_api_home }}/{{ analytics_api_service_name 
 
 analytics_api_wsgi_name: "analyticsdataserver"
 analytics_api_hostname: "analytics-api"
+
 #
 # OS packages
 #
-
 analytics_api_debian_pkgs:
   - 'libmysqlclient-dev'
 
-# TODO: update to master when analytics code merges
-ANALYTICS_API_VERSION: "gbabey/enterprise-data-api"
-
+ANALYTICS_API_VERSION: "master"
 ANALYTICS_API_NGINX_PORT: '1{{ analytics_api_gunicorn_port }}'
 ANALYTICS_API_SSL_NGINX_PORT: '4{{ analytics_api_gunicorn_port }}'
 
